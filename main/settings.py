@@ -10,6 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
@@ -43,6 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
+
+    'cloudinary',
 
     #My apps
     "home.apps.HomeConfig",
@@ -50,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -139,7 +147,10 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATIC_DIRS = [
+# STATIC_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
@@ -149,3 +160,12 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# adding config
+cloudinary.config( 
+  cloud_name = "dmpxni4ku", 
+  api_key = "589853123957555", 
+  api_secret = "qXi49wce6G3lb1GitG69KQ_7HZ0",
+)
+

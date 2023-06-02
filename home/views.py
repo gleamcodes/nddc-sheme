@@ -5,6 +5,7 @@ from .models import ApplicantDetail
 from django.core.files.base import ContentFile
 import base64
 from django.contrib import messages
+import cloudinary.uploader
 
 
 # Create your views here.
@@ -63,8 +64,13 @@ def save_image(request):
         ext = format.split('/')[-1]
         image_file = ContentFile(base64.b64decode(imgstr), name=f'image.{ext}')
 
+        folder_name = 'applicant_photo'  # Specify the folder name here
+        # Upload image to Cloudinary with folder specified
+        upload_result = cloudinary.uploader.upload(image_file, folder=folder_name)
+        image_url = upload_result['secure_url']
+
         # # Create a new Image instance and save it to the database
-        new_applicant = ApplicantDetail(appliacant_image=image_file, employmentStrength=employmentStrength, phoneNumber=phoneNumber, albumSerialNumber=albumSerialNumber, first_name=first_name, last_name=last_name, tradeType=tradeType, accountNumber=accountNumber, bankName=bankName, lga=lga)
+        new_applicant = ApplicantDetail(applicant_image=image_url, employmentStrength=employmentStrength, phoneNumber=phoneNumber, albumSerialNumber=albumSerialNumber, first_name=first_name, last_name=last_name, tradeType=tradeType, accountNumber=accountNumber, bankName=bankName, lga=lga)
         new_applicant.save()
         messages.success(request, 'Applicant Registered Successfully')
         return JsonResponse({'success': True})
