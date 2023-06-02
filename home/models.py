@@ -14,3 +14,7 @@ class ApplicantDetail(models.Model):
     albumSerialNumber = models.CharField(max_length=255, blank=True, null=True)
     employmentStrength = models.CharField(max_length=255, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+
+    def __str___(self):
+        return f"{self.first_name} {self.last_name} details"
