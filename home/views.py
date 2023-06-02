@@ -11,8 +11,8 @@ from django.contrib import messages
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
-        all_applicant = ApplicantDetail.objects.all().first()
-        print(all_applicant.appliacant_image.url)
+        all_applicant = ApplicantDetail.objects.all()
+        print(all_applicant)
         context = {
             "all_applicant":all_applicant
         }
