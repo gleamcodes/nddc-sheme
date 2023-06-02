@@ -12,4 +12,5 @@ class ApplicantDetail(models.Model):
     phoneNumber = models.CharField(max_length=255)
     lga = models.CharField(max_length=255)
     albumSerialNumber = models.CharField(max_length=255, blank=True, null=True)
+    employmentStrength = models.CharField(max_length=255, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
