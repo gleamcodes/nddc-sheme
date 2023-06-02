@@ -21,12 +21,14 @@ class HomeView(View):
         bankName = request.POST.get("bankName")
         lga = request.POST.get("lga")
         albumSerialNumber = request.POST.get("albumSerialNumber")
+        phoneNumber = request.POST.get("phoneNumber")
         print(first_name)
         print(last_name)
         print(tradeType)
         print(accountNumber)
         print(bankName)
         print(lga)
+        print(phoneNumber)
         context = {
             "first_name":first_name,
             "last_name":last_name,
@@ -34,7 +36,8 @@ class HomeView(View):
             "accountNumber":accountNumber,
             "bankName":bankName,
             "lga":lga,
-            "albumSerialNumber":albumSerialNumber
+            "albumSerialNumber":albumSerialNumber,
+            "phoneNumber":phoneNumber,
         }
         return render(request, "home/capture-image.html", context)
         
@@ -49,6 +52,7 @@ def save_image(request):
         bankName = request.POST.get("bankName")
         lga = request.POST.get("lga")
         albumSerialNumber = request.POST.get("albumSerialNumber")
+        phoneNumber = request.POST.get("phoneNumber")
 
         # Convert Base64 data to image file
         format, imgstr = image_data.split(';base64,')
@@ -56,7 +60,7 @@ def save_image(request):
         image_file = ContentFile(base64.b64decode(imgstr), name=f'image.{ext}')
 
         # # Create a new Image instance and save it to the database
-        new_applicant = ApplicantDetail(appliacant_image=image_file, albumSerialNumber=albumSerialNumber, first_name=first_name, last_name=last_name, tradeType=tradeType, accountNumber=accountNumber, bankName=bankName, lga=lga)
+        new_applicant = ApplicantDetail(appliacant_image=image_file, phoneNumber=phoneNumber, albumSerialNumber=albumSerialNumber, first_name=first_name, last_name=last_name, tradeType=tradeType, accountNumber=accountNumber, bankName=bankName, lga=lga)
         new_applicant.save()
         messages.success(request, 'Applicant Registered Successfully')
         return JsonResponse({'success': True})

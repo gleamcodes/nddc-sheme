@@ -47,7 +47,7 @@
                 type: 'POST',
                 dataType: 'json',
                 headers: { 'X-CSRFToken': csrfToken },
-                data: { 'image_data': imageData, "albumSerialNumber":"{{ albumSerialNumber }}", "first_name":"{{ first_name }}", "last_name":"{{ last_name }}", "tradeType":"{{ tradeType }}", "accountNumber":"{{ accountNumber }}", "bankName":"{{ bankName }}", "lga":"{{ lga }}"}, // Include the image data in the AJAX request
+                data: { 'image_data': imageData, "phoneNumber":"{{ phoneNumber }}", "albumSerialNumber":"{{ albumSerialNumber }}", "first_name":"{{ first_name }}", "last_name":"{{ last_name }}", "tradeType":"{{ tradeType }}", "accountNumber":"{{ accountNumber }}", "bankName":"{{ bankName }}", "lga":"{{ lga }}"}, // Include the image data in the AJAX request
                 success: function (data) {
                     if (data.success === true) {
                         window.location.href = "{% url 'home:home_view' %}";
