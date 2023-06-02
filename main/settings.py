@@ -84,17 +84,20 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASE_URL = config('DATABASE_URL')
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
+DATABASES = {
     "default": dj_database_url.parse("postgres://nddc_sheme_user:IG429BmWzCGW7SvvoMIwV90TzawQl7uU@dpg-chssmh9mbg57s5td7i60-a.oregon-postgres.render.com/nddc_sheme"),
 }
+# if DEBUG:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+#     DATABASES = {
+#     "default": dj_database_url.parse("postgres://nddc_sheme_user:IG429BmWzCGW7SvvoMIwV90TzawQl7uU@dpg-chssmh9mbg57s5td7i60-a.oregon-postgres.render.com/nddc_sheme"),
+# }
 
 
 # Password validation
