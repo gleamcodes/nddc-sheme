@@ -11,12 +11,7 @@ from django.contrib import messages
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
-        all_applicant = ApplicantDetail.objects.all().first()
-        print(all_applicant)
-        context = {
-            "all_applicant":all_applicant
-        }
-        return render(request, "home/index.html", context)
+        return render(request, "home/index.html")
     
     def post(self, request, *args, **kwargs):
         first_name = request.POST.get("first_name")
