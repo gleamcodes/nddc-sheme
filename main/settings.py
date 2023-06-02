@@ -93,7 +93,7 @@ if DEBUG:
     }
 else:
     DATABASES = {
-    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+    "default": dj_database_url.parse("postgres://nddc_sheme_user:IG429BmWzCGW7SvvoMIwV90TzawQl7uU@dpg-chssmh9mbg57s5td7i60-a.oregon-postgres.render.com/nddc_sheme"),
 }
 
 
