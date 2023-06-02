@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NNDC Business and Traders Support Scheme - Applicant Enrollment</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <style>
+    /* Add your custom styles here */
+    .logo {
+      height: 100px;
+      width: 100px;
+      /* Add your logo styles here */
+    }
+    .form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      /* Add your form container styles here */
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <!-- <div class="text-center">
+    <img src="path/to/your/logo.png" alt="Logo" class="logo">
+  </div> -->
+
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show" role="alert">
+      <strong>Message: </strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endfor %}
+  
+  <!-- Form -->
+  <div class="container form-container">
+    <h2 class="text-center">NNDC Business and Traders Support Scheme</h2>
+    <h4 class="text-center">Applicant Enrollment</h4>
+    <form class="mt-2" method="post">
+      {% csrf_token %}
+      <div class="form-row mb-2">
+        <div class="col-md-6">
+          <label for="name">First Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your first name" name="first_name" required>
+        </div>
+        <div class="col-md-6">
+          <label for="name">Last Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your last name" name="last_name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tradeType">Trade Type</label>
+        <input type="text" class="form-control" id="tradeType" placeholder="Enter your trade type" name="tradeType" required>
+      </div>
+      <div class="form-group">
+        <label for="accountNumber">Account Number</label>
+        <input type="number" class="form-control" id="accountNumber" placeholder="Enter your account number" name="accountNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="bankName">Bank Name</label>
+        <select class="form-control" id="bankName" name="bankName" required>
+          <option value="">Select Bank</option>
+          <option value="United Bank for Africa PLC">United Bank for Africa PLC</option>
+          <option value="First Bank of Nigeria Limited">First Bank of Nigeria Limited</option>
+          <option value="Zenith Bank PLC">Zenith Bank PLC</option>
+          <option value="Union Bank of Nigeria PLC">Union Bank of Nigeria PLC</option>
+          <option value="Guaranty Trust Bank">Guaranty Trust Bank</option>
+          <option value="Fidelity Bank PLC">Fidelity Bank PLC</option>
+          <option value="Keystone Bank Limited">Keystone Bank Limited</option>
+          <option value="Ecobank Nigeria">Ecobank Nigeria</option>
+          <option value="Wema Bank PLC">Wema Bank PLC</option>
+          <option value="Access Bank Plc">Access Bank Plc</option>
+          <option value="First City Monument Bank Limited">First City Monument Bank Limited</option>
+          <option value="Polaris Bank Limited">Polaris Bank Limited</option>
+          <option value="Sterling Bank PLC">Sterling Bank PLC</option>
+          <option value="Unity Bank plc">Unity Bank plc</option>
+          <option value="Stanbic IBTC Bank PLC">Stanbic IBTC Bank PLC</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="albumSerialNumber">Album Serial Number</label>
+        <input type="text" class="form-control" id="albumSerialNumber" placeholder="Enter your album serial number" required name="albumSerialNumber">
+      </div>
+      <div class="form-group">
+        <label for="lga">LGA</label>
+        <select class="form-control" id="lga" name="lga" required>
+          <option value="">Select LGA</option>
+          <option value="Abak">Abak</option>
+          <option value="Eastern Obolo">Eastern Obolo</option>
+          <option value="Eket">Eket</option>
+          <option value="Esit Eket">Esit Eket</option>
+          <option value="Essien Udim">Essien Udim</option>
+          <option value="Etim Ekpo">Etim Ekpo</option>
+          <option value="Etinan">Etinan</option>
+          <option value="Ibeno">Ibeno</option>
+          <option value="Ibesikpo Asutan">Ibesikpo Asutan</option>
+          <option value="Ibiono Ibom">Ibiono Ibom</option>
+          <option value="Ika">Ika</option>
+          <option value="Ikono">Ikono</option>
+          <option value="Ikot Abasi">Ikot Abasi</option>
+          <option value="Ikot Ekpene">Ikot Ekpene</option>
+          <option value="Ini">Ini</option>
+          <option value="Itu">Itu</option>
+          <option value="Mbo">Mbo</option>
+          <option value="Mkpat Enin">Mkpat Enin</option>
+          <option value="Nsit Atai">Nsit Atai</option>
+          <option value="Nsit Ibom">Nsit Ibom</option>
+          <option value="Nsit Ubium">Nsit Ubium</option>
+          <option value="Obot Akara">Obot Akara</option>
+          <option value="Okobo">Okobo</option>
+          <option value="Onna">Onna</option>
+          <option value="Oron">Oron</option>
+          <option value="Oruk Anam">Oruk Anam</option>
+          <option value="Udung Uko">Udung Uko</option>
+          <option value="Ukanafun">Ukanafun</option>
+          <option value="Uruan">Uruan</option>
+          <option value="Urue-Offong/Oruko">Urue-Offong/Oruko</option>
+          <option value="Uyo">Uyo</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Next</button>
+    </form>
+  </div>
+  
+  <!-- Include Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
