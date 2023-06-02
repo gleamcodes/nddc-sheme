@@ -26,11 +26,10 @@ urlpatterns = [
     path("", include("home.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += [
-    re_path(r'^media/(?P<path>.*)$', serve, {
-        'document_root': settings.MEDIA_ROOT,
-    }),
-]
+
+admin.site.index_title = "NNDC Business and Traders Support Scheme"
+admin.site.site_header = "NNDC Business and Traders Support Scheme Admin"
+admin.site.site_title = "NNDC Business and Traders Support Scheme Adminiistration"
 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
