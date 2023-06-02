@@ -21,9 +21,10 @@
 </head>
 <body>
   <!-- Logo -->
-  <!-- <div class="text-center">
-    <img src="path/to/your/logo.png" alt="Logo" class="logo">
-  </div> -->
+  <div class="text-center">
+    <img src="{{ all_applicant.appliacant_image.url }}" alt="Logo" class="logo">
+  </div>
+  
 
   {% for message in messages %}
     <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show" role="alert">
