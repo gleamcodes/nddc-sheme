@@ -21,7 +21,7 @@ class HomeView(View):
         accountNumber = request.POST.get("accountNumber")
         bankName = request.POST.get("bankName")
         lga = request.POST.get("lga")
-        albumSerialNumber = request.POST.get("albumSerialNumber")
+        albumSerialNumber = int(request.POST.get("albumSerialNumber"))
         phoneNumber = request.POST.get("phoneNumber")
         employmentStrength = request.POST.get("employmentStrength")
         print(first_name)
@@ -55,7 +55,7 @@ def save_image(request):
         accountNumber = request.POST.get("accountNumber")
         bankName = request.POST.get("bankName")
         lga = request.POST.get("lga")
-        albumSerialNumber = request.POST.get("albumSerialNumber")
+        albumSerialNumber = int(request.POST.get("albumSerialNumber"))
         phoneNumber = request.POST.get("phoneNumber")
         employmentStrength = request.POST.get("employmentStrength")
 
