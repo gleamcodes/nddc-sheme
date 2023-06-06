@@ -28,10 +28,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = "(a8@tt4jm76%fnj2zo-y&dx)^!totaf(*w48y6%lf-$ek%9q2="
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', "nddc-scheme.onrender.com"]
 
@@ -89,8 +89,6 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASE_URL = config('DATABASE_URL')
 
 DATABASES = {
     "default": dj_database_url.parse("postgres://nddc_sheme_user:IG429BmWzCGW7SvvoMIwV90TzawQl7uU@dpg-chssmh9mbg57s5td7i60-a.oregon-postgres.render.com/nddc_sheme"),

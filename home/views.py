@@ -6,6 +6,8 @@ from django.core.files.base import ContentFile
 import base64
 from django.contrib import messages
 import cloudinary.uploader
+import pandas as pd
+from django.http import FileResponse
 
 
 # Create your views here.
@@ -75,3 +77,24 @@ def save_image(request):
         messages.success(request, 'Applicant Registered Successfully')
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
+
+
+class ExtractUserDataView(View):
+    def get(self, request, *args, **kwargs):
+        # Retrieve data from Django database
+        data = ApplicantDetail.objects.all().order_by("albumSerialNumber")
+
+        # Convert data to a Pandas DataFrame
+        data_df = pd.DataFrame(list(data.values()))
+
+        # Drop the field(s) you want to exclude
+        data_df = data_df.drop(["applicant_image", "timestamp", "id"], axis=1)
+
+        # Export DataFrame to spreadsheet
+        output_path = 'output.xlsx'
+        data_df.to_excel(output_path, index=False)
+
+        # Serve the file as a response for download
+        response = FileResponse(open(output_path, 'rb'), as_attachment=True)
+        response['Content-Disposition'] = 'attachment; filename="output.xlsx"'
+        return response

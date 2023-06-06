@@ -39,7 +39,7 @@
   <div class="container form-container">
     <h2 class="text-center">NNDC Business and Traders Support Scheme</h2>
     <h4 class="text-center">Applicant Enrollment</h4>
-    <form class="mt-2" method="post">
+    <form class="m-5" method="post">
       {% csrf_token %}
       <div class="form-row mb-2">
         <div class="col-md-6">
@@ -129,7 +129,14 @@
           <option value="Uyo">Uyo</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Next</button>
+      <div class="form-row">
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Next</button>
+        </div>
+        <div class="col-md-6">
+          <a class="btn btn-success" href="{% url 'home:extract_user_data' %}" style="width: 100%;">Extract Users Data</a>
+        </div>
+      </div>
     </form>
   </div>
   
