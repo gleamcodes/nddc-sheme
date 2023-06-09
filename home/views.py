@@ -14,6 +14,7 @@ from django.http import FileResponse
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
+        .
         return render(request, "home/index.html")
     
     def post(self, request, *args, **kwargs):
@@ -50,6 +51,7 @@ class HomeView(View):
 
 def save_image(request):
     if request.method == 'POST':
+        .
         image_data = request.POST.get('image_data')
         first_name = request.POST.get("first_name")
         last_name = request.POST.get("last_name")
@@ -81,6 +83,7 @@ def save_image(request):
 
 class ExtractUserDataView(View):
     def get(self, request, *args, **kwargs):
+        .
         # Retrieve data from Django database
         data = ApplicantDetail.objects.all().order_by("albumSerialNumber")
 
